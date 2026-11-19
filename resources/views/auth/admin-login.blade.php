@@ -1,0 +1,3 @@
+@extends('layouts.app')
+@section('title', 'Masuk Pengelola · BeasiswaKu')
+@section('content')<div class="login-wrap"><form class="login-card" method="post" action="{{ route('admin.login.store') }}">@csrf<span class="brand-mark">♧</span><h1>Masuk Pengelola</h1><p>Gunakan akun administrator BeasiswaKu.</p>@if($errors->any())<div class="error">{{ $errors->first() }}</div>@endif<label>Email administrator<input class="field" type="email" name="email" value="{{ old('email') }}" required autofocus></label><label>Kata sandi<input class="field" type="password" name="password" required></label><button class="button full">Masuk</button></form></div>@endsection
