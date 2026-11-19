@@ -18,25 +18,30 @@ class ScholarshipController extends Controller
         return view('admin.dashboard', compact('scholarships', 'stats'));
     }
 
-    public function create() { return view('admin.form', ['scholarship' => new Scholarship()]); }
-
     public function store(Request $request)
     {
         Scholarship::create($this->validated($request));
+        if ($request->expectsJson()) {
+            return response()->json(['message' => 'Beasiswa berhasil ditambahkan.'], 201);
+        }
         return redirect()->route('admin.dashboard')->with('success', 'Beasiswa berhasil ditambahkan.');
     }
-
-    public function edit(Scholarship $scholarship) { return view('admin.form', compact('scholarship')); }
 
     public function update(Request $request, Scholarship $scholarship)
     {
         $scholarship->update($this->validated($request, $scholarship));
+        if ($request->expectsJson()) {
+            return response()->json(['message' => 'Perubahan beasiswa berhasil disimpan.']);
+        }
         return redirect()->route('admin.dashboard')->with('success', 'Perubahan beasiswa berhasil disimpan.');
     }
 
     public function destroy(Scholarship $scholarship)
     {
         $scholarship->delete();
+        if (request()->expectsJson()) {
+            return response()->json(['message' => 'Beasiswa berhasil dihapus.']);
+        }
         return redirect()->route('admin.dashboard')->with('success', 'Beasiswa berhasil dihapus.');
     }
 

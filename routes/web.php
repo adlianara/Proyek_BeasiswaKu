@@ -19,9 +19,7 @@ Route::prefix('pengelola')->name('admin.')->group(function () {
     });
     Route::middleware('admin')->group(function () {
         Route::get('/', [AdminScholarshipController::class, 'index'])->name('dashboard');
-        Route::get('/beasiswa/baru', [AdminScholarshipController::class, 'create'])->name('scholarships.create');
         Route::post('/beasiswa', [AdminScholarshipController::class, 'store'])->name('scholarships.store');
-        Route::get('/beasiswa/{scholarship}/ubah', [AdminScholarshipController::class, 'edit'])->name('scholarships.edit');
         Route::put('/beasiswa/{scholarship}', [AdminScholarshipController::class, 'update'])->name('scholarships.update');
         Route::delete('/beasiswa/{scholarship}', [AdminScholarshipController::class, 'destroy'])->name('scholarships.destroy');
         Route::post('/keluar', [SessionController::class, 'destroy'])->name('logout');
