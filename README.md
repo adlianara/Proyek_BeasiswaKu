@@ -6,7 +6,7 @@ Portal informasi beasiswa untuk mahasiswa dengan pencarian publik, halaman detai
 
 | Nama | NIM |
 | --- | --- |
-| Neisya Fadilla Khairunnisa | H1101251007 |
+| Neisya Fadilla Nurkhairunnisa | H1101251007 |
 | Syarifah Putri | H1101251013 |
 | Shinta Ayuwidati | H1101251019 |
 | Adli Anara Sofian | H1101251051 |
